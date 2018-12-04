@@ -9,9 +9,7 @@
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 </head>
 <body>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+    
     <div class="page">
         <header class="bar bar-nav">
             <a class="button button-link button-nav pull-left" href="/demos/card" data-transition='slide-out'>
@@ -20,6 +18,9 @@
             @*标题栏*@
             <h1 class="title">我的生活</h1>
         </header>
+        <div class="container body-content">
+            @RenderBody()
+        </div>
         <nav class="bar bar-tab">
             <a class="tab-item external active" href="#">
                 <span class="icon icon-gift"></span>
@@ -30,7 +31,7 @@
                 <span class="tab-label">游戏中心</span>
                 <span class="badge">2</span>
             </a>
-            <a class="tab-item external" href="#">
+            <a class="tab-item external" href="~/Home/Myself">
                 <span class="icon icon-me"></span>
                 <span class="tab-label">个人中心</span>
             </a>

@@ -26,5 +26,12 @@ namespace IntegralGO.Controllers
 
             return View();
         }
+
+        public ActionResult Myself()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
     }
 }
