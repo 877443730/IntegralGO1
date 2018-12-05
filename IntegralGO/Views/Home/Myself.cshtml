@@ -2,44 +2,62 @@
 @{
     ViewBag.Title = "Myself";
 }
-    <div class="content-block-title" style="margin-top:15%">带箭头</div>
+    <div class="list-block" style="background-color:white">
+        <div class="item-content">
+            <div class="item-media"><i class="icon icon-f7"></i></div>
+            <table class="item-inner">
+                <tr>
+                    <td rowspan="2" style="width:80px;height:50px"><i class="sui-icon icon-touch-user"></i></td>
+                    <td class="item-after">your name</td>
+                </tr>
+                <tr>
+                    <td class="item-after" style="font-size:small"><i class="sui-icon icon-tb-refund" style="margin-top:3%"></i>可用积分：<span style="color:yellow">0</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
     <div class="list-block">
         <ul>
-            <li class="item-content item-link">
+            <li class="item-content item-link" onclick="itemClick('我的福利')">
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
-                    <div class="item-title">我的福利</div>
+                    <div class="item-title"><i class="sui-icon icon-tb-redpacket"></i>我的福利</div>
                     <div class="item-after" style="font-size:small">查看可用卡券</div>
                 </div>
             </li>
-            <li class="item-content item-link">
+            <li class="item-content item-link" onclick="itemClick('积分记录')">
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
-                    <div class="item-title">积分记录</div>
+                    <div class="item-title"><i class="sui-icon icon-tb-footprint"></i>积分记录</div>
                 </div>
             </li>
-            <li class="item-content item-link">
+            <li class="item-content item-link" onclick="itemClick('积分攻略')">
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
-                    <div class="item-title">积分攻略</div>
+                    <div class="item-title"><i class="sui-icon icon-tb-same"></i>积分攻略</div>
                 </div>
             </li>
-            <li class="item-content item-link">
+            <li class="item-content item-link" onclick="itemClick('我的地址')">
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
-                    <div class="item-title">我的地址</div>
+                    <div class="item-title"><i class="sui-icon icon-tb-location"></i>我的地址</div>
                 </div>
             </li>
         </ul>
     </div>
     <div class="list-block">
         <ul>
-            <li class="item-content item-link">
+            <li class="item-content item-link" onclick="itemClick('联系客服')">
                 <div class="item-media"><i class="icon icon-f7"></i></div>
                 <div class="item-inner">
-                    <div class="item-title">联系客服</div>
-                    <div class="item-after" style="font-size:small">查看可用卡券</div>
+                    <div class="item-title"><i class="sui-icon icon-touch-earphone"></i>联系客服</div>
                 </div>
             </li>
          </ul>
     </div>
+<script type="text/javascript">
+    function itemClick(_this) {
+        //此方法需要用户ID
+        window.location.href="/Home/Myself_Class?" + _this;
+    }
+</script>

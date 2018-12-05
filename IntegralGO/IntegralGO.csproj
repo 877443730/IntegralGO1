@@ -155,11 +155,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Img\387266.jpg" />
+    <Content Include="Img\QQ图片20181204160702.jpg" />
+    <Content Include="Img\QQ图片20181204160710.jpg" />
+    <Content Include="Img\QQ图片20181204172148.jpg" />
+    <Content Include="Img\QQ图片20181205112917.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -171,6 +177,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\sm-city-picker.js" />
+    <Content Include="Scripts\sm-extend.js" />
+    <Content Include="Scripts\sm.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -186,6 +195,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Myself.cshtml" />
+    <Content Include="Views\Home\Myself_Class.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

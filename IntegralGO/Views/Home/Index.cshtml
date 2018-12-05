@@ -3,6 +3,94 @@
 }
 <style>
     body {
-        background:#ffffff;
+        background: #ffffff;
+    }
+
+    img {
+        height: 20%;
+        width: 100%;
+    }
+
+    #myCarousel {
+        margin-top: 10%;
+        height: 30%;
+    }
+
+    .grid-demo {
+        position: absolute;
+        left: 3%;
+    }
+    .sui-row {
+        margin-left:0;
     }
 </style>
+<div class="card-container">
+    <div class="card">
+        <div id="myCarousel" data-ride="carousel" data-interval="2000" class="sui-carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="active item">
+                    <img style="height:200px; " src="~/Img/387266.jpg" />
+                </div>
+                <div class="item">
+                    <img style="height:200px;" src="~/Img/QQ图片20181204160702.jpg" />
+                </div>
+                <div class="item">
+                    <img style="height:200px;" src="~/Img/QQ图片20181204172148.jpg" />
+                </div>
+            </div><a data-target="#myCarousel" data-slide="prev" class="carousel-control left">‹</a><a data-target="#myCarousel" data-slide="next" class="carousel-control right">›</a>
+        </div>
+    </div>
+</div>
+<div class="grid-demo" style="width:100%">
+    <p>热门兑换</p>
+    <div class="sui-row">
+            <div class="span1">
+                <ul style="margin-top: -10%;">
+                    <li style="line-height:1px;">
+                        <img src="~/Img/QQ图片20181205112917.jpg" />
+                        <p style="text-align:center">1</p>
+                        <p style="text-align:center">2</p>
+                        <input style="text-align:center" type="button" value="去兑换" />
+                    </li>
+                </ul>
+            </div>
+            <div class="span1">
+                <ul style="margin-top: -10%;">
+                    <li style="line-height:1px" >
+                        <img src="~/Img/QQ图片20181205112917.jpg" />
+                        <p style="text-align:center">1</p>
+                        <p style="text-align:center">2</p>
+                        <input style="text-align:center" type="button" value="去兑换" />
+                    </li>
+                </ul>
+            </div>
+            <div class="span1">
+                <ul style="margin-top: -10%;">
+                    <li style="line-height:1px" >
+                        <img src="~/Img/QQ图片20181205112917.jpg" />
+                        <p style="text-align:center">1</p>
+                        <p style="text-align:center">2</p>
+                        <input style="text-align:center" type="button" value="去兑换" />
+                    </li>
+                </ul>
+            </div>
+            <div class="span1">
+                <ul style="margin-top: -10%;">
+                    <li style="line-height:1px;">
+                        <img src="~/Img/QQ图片20181205112917.jpg" />
+                        <p style="text-align:center">1</p>
+                        <p style="text-align:center">2</p>
+                        <input style="text-align:center" type="button" value="去兑换" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+</div>
+<script>
+
+</script>
