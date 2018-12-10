@@ -156,10 +156,12 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Img\387266.jpg" />
+    <Content Include="Img\jifen.png" />
     <Content Include="Img\QQ图片20181204160702.jpg" />
     <Content Include="Img\QQ图片20181204160710.jpg" />
     <Content Include="Img\QQ图片20181204172148.jpg" />
     <Content Include="Img\QQ图片20181205112917.jpg" />
+    <Content Include="Img\积分商城.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

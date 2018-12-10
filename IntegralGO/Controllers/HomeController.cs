@@ -34,10 +34,10 @@ namespace IntegralGO.Controllers
             return View();
         }
 
-        public ActionResult Myself_Class(string Myself_class)
+        public ActionResult Myself_Class(string aa)
         {
             ViewBag.Message = "Your application description page.";
-            ViewBag.Itemclass = Myself_class;
+            ViewBag.Itemclass = aa;
             return View();
         }
     }

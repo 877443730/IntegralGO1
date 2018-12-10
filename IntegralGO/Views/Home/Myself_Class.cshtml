@@ -2,28 +2,449 @@
 @{
     ViewBag.Title = "Myself_Class";
 }
-
-<div class="content-padded">
-
-    <div class="content-padded grid-demo ">
-        <div class="row">
-            <div class="col-40">50%</div>
-            <div class="col-60">50%</div>
-        </div>
-        <div class="row">
-            <div class="col-33">33%</div>
-            <div class="col-33">33%</div>
-            <div class="col-33">33%</div>
-        </div>
-        <div class="row">
-            <div class="col-20">20%</div>
-            <div class="col-80">80%</div>
-        </div>
-        <h2>无间距</h2>
-        <div class="row no-gutter">
-            <div class="col-20">20%</div>
-            <div class="col-80">80%</div>
+<style type="text/css" >
+    .buttons-row .button.active {
+        background-color: gold;
+        color: #fff;
+        z-index: 0;
+    }
+    .buttons-row .button {
+        border-radius: 0;
+        margin-left: -1px;
+        width: 100%;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+         border-color: gold; 
+        color: black;
+        position:center;
+    }
+    .buttons-row .button:first-child {
+        border-radius: .9rem 0 0 .9rem;
+        margin-left: 10%;
+        border-left-width: 1px;
+        border-left-style:solid;
+        border-left-color:gold;
+        width: 40%;
+    }
+    .buttons-row .button:last-child {
+        border-radius: 0 .9rem .9rem 0;
+        width: 40%;
+    }
+    .item-title {
+        color:black;
+    }
+</style>
+<div style="margin-top:13%">
+    @* 此处为积分攻略页面图片 *@
+    <div style="display:none;" id="recordPictureRoom">
+        @* 此DIV为个人中心二级页面上方展示图片 *@
+        <img style="height:100px;width:100%" id="recordPicture" />
+    </div>
+    <div class="content-padded">
+        <div class="content-padded grid-demo" style="position:absolute;width:90%">
+            @* 此处为有相关记录时，页面所显示内容 *@
+            <div id="record" style="display:none;">
+                @* 此DIV为个人中心二级页面展示内容 *@
+                <div style="margin-top:-5%;font-size:10px" id="recordMassage">
+                    @* 此处为积分记录展示页面 *@
+                    <div id="costPage" style="display:none">
+                        <div class="buttons-row" style="margin-top:5%">
+                            <a href="#tab2" class="tab-link active button">获取记录</a>
+                            <a href="#tab3" class="tab-link button">消费记录</a>
+                        </div>
+                        <div class="content-block" style="margin-top:-5%;margin-left:0%">
+                            <div class="tabs">
+                                <div id="tab2" class="tab active">
+                                    <div class="list-block">
+                                        <ul>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-redpacket "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-redpacket "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-redpacket "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-redpacket "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-redpacket "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-redpacket "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-redpacket "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-redpacket "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-redpacket "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-footprint "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-same "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-media"><i class="sui-icon icon-tb-location "></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:red">+1</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="tab3" class="tab">
+                                    <div class="list-block">
+                                        <ul>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:green">-1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:green">-1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:green">-1</div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title">我的福利<br /><span id="getTime" style="font-size:small;color:#8e8e8e">2018年12月7日</span></div>
+                                                    <div class="item-after" style="font-size:x-large;color:green">-1</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @* 此处为我的卡包展示页面 *@
+                    <div id="myCard" style="display:none;">
+                        <div class="card" style="background-color:white">
+                            <div class="card-content" style="height:10px;text-align:right;margin-right:5%;">抽奖</div>
+                            <div class="card-content">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="~/Img/jifen.png" width="44" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row" style="position:absolute;top:40%;">
+                                                    <div class="item-title">现金红包1</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="background-color:white;">
+                                <span>2018-12-07 16:39:45</span>
+                                <span>已领取</span>
+                            </div>
+                        </div>
+                        <div class="card" style="background-color:white">
+                            <div class="card-content" style="height:10px;text-align:right;margin-right:5%;">抽奖</div>
+                            <div class="card-content">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="~/Img/jifen.png" width="44" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row" style="position:absolute;top:40%;">
+                                                    <div class="item-title">现金红包2</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="background-color:white;">
+                                <span>2018-12-07 16:39:45</span>
+                                <span>已领取</span>
+                            </div>
+                        </div>
+                        <div class="card" style="background-color:white">
+                            <div class="card-content" style="height:10px;text-align:right;margin-right:5%;">抽奖</div>
+                            <div class="card-content">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="~/Img/jifen.png" width="44" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row" style="position:absolute;top:40%;">
+                                                    <div class="item-title">现金红包3</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="background-color:white;">
+                                <span>2018-12-07 16:39:45</span>
+                                <span>已领取</span>
+                            </div>
+                        </div>
+                        <div class="card" style="background-color:white">
+                            <div class="card-content" style="height:10px;text-align:right;margin-right:5%;">抽奖</div>
+                            <div class="card-content">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="~/Img/jifen.png" width="44" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row" style="position:absolute;top:40%;">
+                                                    <div class="item-title">现金红包4</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="background-color:white;">
+                                <span>2018-12-07 16:39:45</span>
+                                <span>已领取</span>
+                            </div>
+                        </div>
+                        <div class="card" style="background-color:white">
+                            <div class="card-content" style="height:10px;text-align:right;margin-right:5%;">抽奖</div>
+                            <div class="card-content">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="~/Img/jifen.png" width="44" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row" style="position:absolute;top:40%;">
+                                                    <div class="item-title">现金红包5</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="background-color:white;">
+                                <span>2018-12-07 16:39:45</span>
+                                <span>已领取</span>
+                            </div>
+                        </div>
+                        <div class="card" style="background-color:white">
+                            <div class="card-content" style="height:10px;text-align:right;margin-right:5%;">抽奖</div>
+                            <div class="card-content">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="~/Img/jifen.png" width="44" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row" style="position:absolute;top:40%;">
+                                                    <div class="item-title">现金红包6</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="background-color:white;">
+                                <span>2018-12-07 16:39:45</span>
+                                <span>已领取</span>
+                            </div>
+                        </div>
+                        <div class="card" style="background-color:white">
+                            <div class="card-content" style="height:10px;text-align:right;margin-right:5%;">抽奖</div>
+                            <div class="card-content">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="~/Img/jifen.png" width="44" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row" style="position:absolute;top:40%;">
+                                                    <div class="item-title">现金红包7</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="background-color:white;">
+                                <span>2018-12-07 16:39:45</span>
+                                <span>已领取</span>
+                            </div>
+                        </div>
+                        <div class="card" style="background-color:white">
+                            <div class="card-content" style="height:10px;text-align:right;margin-right:5%;">抽奖</div>
+                            <div class="card-content">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="~/Img/jifen.png" width="44" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row" style="position:absolute;top:40%;">
+                                                    <div class="item-title">现金红包8</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="background-color:white;">
+                                <span>2018-12-07 16:39:45</span>
+                                <span>已领取</span>
+                            </div>
+                        </div>
+                        <div class="card" style="background-color:white">
+                            <div class="card-content" style="height:10px;text-align:right;margin-right:5%;">抽奖</div>
+                            <div class="card-content">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="~/Img/jifen.png" width="44" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row" style="position:absolute;top:40%;">
+                                                    <div class="item-title">现金红包9</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="background-color:white;">
+                                <span>2018-12-07 16:39:45</span>
+                                <span>已领取</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* 此处为无数据记录展示页面 *@
+            <div class="row" id="noRecord">
+                <div class="col-33"><i class="icon icon-f7"></i></div>@*此处为占位容器*@
+                <div class="col-77" style="text-align:center">
+                    <i class="icon icon-f7"></i>
+                    <img style="width:50px;height:50px;" id="iClassPicture" /><br /><span id="iClassMassage"></span>
+                </div>
+            </div>
+            @* 此处为添加地址按钮 *@
+            <div>
+                <p id="address" style="display:none"><a href='#' class='button button-fill open-panel' style='position:fixed;bottom:10%; left:0; width:100%'>添加地址</a></p>
+            </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var imgsrc = "";
+    var myself_massage = "";
+    function myself_class() {
+        //此处需做判定是否有记录，无记录则默认执行下方swtch。
+        switch ("@ViewBag.Itemclass") {
+            case "我的福利":
+                //imgsrc = "/Img/jifen.png";
+                //myself_massage = "暂无可用卡券信息";
+                $("#noRecord").attr("style", "dispaly:none");
+                $("#iClassPicture").attr("style", "dispaly:none;");
+                $("#record").removeAttr("style");
+                $("#myCard").removeAttr("style");
+                $("#myCard").attr("style", "margin-top:5%");
+                break;
+            case "积分记录":
+                //imgsrc = "/Img/jifen.png";
+                //myself_massage = "暂无积分记录信息";//前为无记录展示页面，后为有记录展示页面
+                $("#noRecord").attr("style", "dispaly:none");
+                $("#iClassPicture").attr("style", "dispaly:none;");
+                $("#record").removeAttr("style");
+                $("#costPage").removeAttr("style");
+                break;
+            case "积分攻略":
+                $("#noRecord").attr("style", "dispaly:none");
+                $("#iClassPicture").attr("style", "dispaly:none;");
+                $("#record").removeAttr("style");
+                $("#recordPictureRoom").removeAttr("style");
+                $("#recordPictureRoom").attr("style", "width:100%");
+                $("#recordPicture").attr("src", "/Img/积分商城.png")
+                $("#recordMassage").html("<p>1.积分</p><p>积分是根据用户在与积分GO相关的小游戏、小程序等上的登陆、邀请好友等行为，综合算出的价值分。<br/>积分需要回到积分GO上领取才有效，过期未领取将视为放弃。</p><p>2.积分兑换商品</p><p>积分可以在积分GO平台上兑换商品，兑换内容及价格视平台规则而定。<p>3.哪些小游戏可获得积分<p>用户玩积分GO中的精选游戏可获取到积分。</p></p></p><p><a href = '#' class = 'button button-fill open-panel' style='background-color:orange;width:40%;margin:auto'>赚取更多积分</a></p>")
+                break;
+            case "我的地址":
+                imgsrc = "/Img/jifen.png";
+                myself_massage = "暂无地址信息";
+                $("#address").removeAttr("style");
+                break;
+        }
+        $("#iClassPicture").attr("src", imgsrc);
+        $("#iClassMassage").text(myself_massage);
+    }
+    window.onload = myself_class();
+</script>
 
