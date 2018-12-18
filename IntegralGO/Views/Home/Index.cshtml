@@ -99,23 +99,45 @@
 </div>
 <div class="card-container">
     <div class="card">
+        @* 此处为轮播图展示 *@
         <div id="myCarousel" data-ride="carousel" data-interval="2000" class="sui-carousel slide">
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
+                @{
+                    List<IntegralGO.Backstage_RotationChart> rotationcharts = ViewData["chartlist"] as List<IntegralGO.Backstage_RotationChart>;
+                    for (int i = 0; i < rotationcharts.Count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            <li data-target="#myCarousel" data-slide-to="@i" class="active"></li>
+                        }
+                        else
+                        {
+                            <li data-target="#myCarousel" data-slide-to="@i"></li>
+                        }
+                    }
+                }
             </ol>
             <div class="carousel-inner">
-                <div class="active item">
-                    <img style="height:150px;border-radius: 10px; " src="~/Img/387266.jpg" />
-                </div>
-                <div class="item">
-                    <img style="height:150px;border-radius: 10px;" src="~/Img/QQ图片20181204160702.jpg" />
-                </div>
-                <div class="item">
-                    <img style="height:150px;border-radius: 10px;" src="~/Img/QQ图片20181204172148.jpg" />
-                </div>
-            </div><a data-target="#myCarousel" data-slide="prev" class="carousel-control left">?</a><a data-target="#myCarousel" data-slide="next" class="carousel-control right">?</a>
+                @{
+                    for (int i = 0; i < rotationcharts.Count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            <div class="active item">
+                                <a href="//@rotationcharts[i].jumpAdress"><img style="height:150px;border-radius: 10px; " src="~/Img/@rotationcharts[i].path" /></a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="item">
+                                <a href="//@rotationcharts[i].jumpAdress"><img style="height:150px;border-radius: 10px; " src="~/Img/@rotationcharts[i].path" /></a>
+                            </div>
+                        }
+                    }
+                }
+
+            </div>
+            <a data-target="#myCarousel" style="z-index:99999" data-slide="prev" class="carousel-control left">‹</a><a data-target="#myCarousel" data-slide="next" class="carousel-control right">›</a>
         </div>
     </div>
 </div>
@@ -126,38 +148,20 @@
     </p>
     <div class="sui-row">
         <div class="span1">
-            <ul class="exchange">
-                <li class="exchangeli">
-                    <img style="width: 50px;height: 50px;" src="~/Img/红包.png" />
-                    <span style="font-size:12px;text-align:center; display: block;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">随机红包</span>
-                    <span style="text-align:center;color:#e1ad35; display: block;font-size:10px">3积分</span>
-                    <input class="sui-btn btn-small btn-warning" style="text-align:center;border-radius:20px;background-color:#faf2dd;border:0;color:#9d8d69" type="button" value="去兑换" />
-                </li>
-            </ul>
-            <ul class="exchange">
-                <li class="exchangeli">
-                    <img style="width: 50px;height: 50px;" src="~/Img/QB.png" />
-                    <span style="font-size:12px;text-align:center; display: block;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">2 Q币</span>
-                    <span style="text-align:center;color:#e1ad35; display: block;font-size:10px">20积分</span>
-                    <input class="sui-btn btn-small btn-warning" style="text-align:center;border-radius:20px;background-color:#faf2dd;border:0;color:#9d8d69" type="button" value="去兑换" />
-                </li>
-            </ul>
-            <ul class="exchange">
-                <li class="exchangeli">
-                    <img style="width: 50px;height: 50px;" src="~/Img/soutu123.cn_3715405_圣诞节红色礼物铃铛氛围元素_搜图中国祝您工作顺利.png" />
-                    <span style="font-size:12px; text-align:center; display: block;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">圣诞节礼物</span>
-                    <span style="text-align:center;color:#e1ad35; display: block;font-size:10px">30积分</span>
-                    <input class="sui-btn btn-small btn-warning" style="text-align:center;border-radius:20px;background-color:#faf2dd;border:0;color:#9d8d69" type="button" value="去兑换" />
-                </li>
-            </ul>
-            <ul class="exchange">
-                <li class="exchangeli">
-                    <img style="width: 50px;height: 50px;" src="~/Img/微信图片_20181206162438.png" />
-                    <span style="font-size:12px; text-align:center; display: block;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">爱奇艺黄金VIP</span>
-                    <span style="text-align:center;color:#e1ad35; display: block;font-size:10px">88积分</span>
-                    <input class="sui-btn btn-small btn-warning" style="text-align:center;border-radius:20px;background-color:#faf2dd;border:0;color:#9d8d69" type="button" value="去兑换" />
-                </li>
-            </ul>
+            @{
+                List<dynamic> commodities = ViewData["commoditieslist"] as List<dynamic>;
+                foreach (var item in commodities.Take(4))
+                {
+                    <ul class="exchange">
+                        <li class="exchangeli">
+                            <img style="width: 50px;height: 50px;" src="~/Img/@item.commoditiePath" />
+                            <span style="font-size:12px;text-align:center; display: block;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">@item.commoditieName</span>
+                            <span style="text-align:center;color:#e1ad35; display: block;font-size:10px">@item.useIntegral 积分</span>
+                            <a class="sui-btn btn-small btn-warning" style="text-align:center;border-radius:20px;background-color:#faf2dd;border:0;color:#9d8d69" href="~/Home/CommoditiePage?commonid=@item.id">去兑换</a>
+                        </li>
+                    </ul>
+                }
+            }
         </div>
     </div>
 </div>
@@ -165,40 +169,24 @@
 <div class="list-block">
     <p style="font-size:15px;margin-left: 3%;font-weight: bold;">实时兑换</p>
     @{
-        var a = 10;
-        for (int i = 0; i < a; i++)
+        foreach (var item in commodities)
         {
             <table class="sui-table table-bordered" style="margin: 10px;width:95%;border: none;">
                 <tr>
                     <td width="50%" style="border: none;">
                         <div class="typographic">
-                            <img style="width:50px;height:50px;" src="~/Img/jifen.png" />
+                            <img style="width:50px;height:50px;" src="~/Img/@item.commoditiePath" />
                             <ul class="unstyled" style="background-color:transparent;text-align:left;">
-                                <li><strong>6Q币</strong></li>
-                                <li style="font-size:10px;color:#8e8e8e">可兑换王者荣耀点卷</li>
-                                <li style="color:#fac603">60积分</li>
+                                <li><strong>@item.commoditieName</strong></li>
+                                <li style="font-size:10px;color:#8e8e8e">@item.Ctitle</li>
+                                <li style="color:#fac603">@item.useIntegral 积分</li>
                             </ul>
                         </div>
                     </td>
-                    <td rowspan="2" width="1%" class="center" style="border: none;"><input style="float:right;border-radius: 25px;background-color:#f3b23a" type="button" class="sui-btn btn-warning" value="去兑换" /></td>
+                    <td rowspan="2" width="1%" class="center" style="border: none;"><a href="~/Home/CommoditiePage?commonid=@item.id"><input style="float:right;border-radius: 25px;background-color:#f3b23a" type="button" class="sui-btn btn-warning" value="去兑换" /></a></td>
                 </tr>
             </table>
         }
-
     }
     <div class="item-media" style="margin-top:10%"><i class="icon icon-f7"></i></div>
-    @*<table class="sui-table table-bordered" style="margin: 10px;width:95%;border: none;">
-            <tr>
-                <td width="50%" style="border: none;">
-                    <div class="typographic">
-                        <img style="width:50px;height:50px;" src="~/Img/QQ图片20181207151429.png" />
-                        <ul class="unstyled" style="background-color:transparent;text-align:left;">
-                            <li><strong></strong></li>
-                            <li style="font-size:10px;color:#8e8e8e"></li>
-                            <li style="color:#fac603"></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-        </table>*@
 </div>

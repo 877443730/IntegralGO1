@@ -19,6 +19,28 @@
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <style type="text/css">
+        .bar-tab .tab-item.active{
+            color:gold;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = chooseItem;
+        function chooseItem() {
+            var indexTitle = $("#indexTitle").text();
+            switch (indexTitle) {
+                case "积分GO":
+                    $("#IndexItem").addClass("active");
+                    break;
+                case "游戏中心":
+                    $("#GameItem").addClass("active");
+                    break;
+                default:
+                    $("#MyselfItem").addClass("active");
+                    break;
+            }
+        }
+    </script>
 </head>
 <body style="height:90%;background-color:white;">
     <header class="bar bar-nav" style="float:left;position:fixed;bottom:0; left:0; width:100%">
@@ -26,22 +48,22 @@
             <span class="icon icon-left"></span>
         </a>
         @*标题栏*@
-        <h1 class="title">我的生活</h1>
+        <h1 class="title"><span id="indexTitle">@ViewBag.chooseTitle</span></h1>
     </header>
     <div class="container body-content">
         @RenderBody()
     </div>
     <nav class="bar bar-tab" style="float:left;position:fixed;bottom:0; left:0; width:100%">
-        <a class="tab-item external active" href="#">
+        <a class="tab-item external" id="IndexItem" href="~/Home/Index">
             <span class="icon icon-gift"></span>
             <span class="tab-label">积分GO</span>
         </a>
-        <a class="tab-item external" href="">
+        <a class="tab-item external" id="GameItem" href="//www.4399.com">
             <span class="icon icon-computer"></span>
             <span class="tab-label">游戏中心</span>
             <span class="badge">2</span>
         </a>
-        <a class="tab-item external" href="~/Home/Myself">
+        <a class="tab-item external" id="MyselfItem" href="~/Home/Myself">
             <span class="icon icon-me"></span>
             <span class="tab-label">个人中心</span>
         </a>

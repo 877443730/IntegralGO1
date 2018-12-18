@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -53,6 +59,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -142,9 +150,36 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Backstage_Commoditie.cs">
+      <DependentUpon>IntegralGOData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Backstage_CommoditiesInformation.cs">
+      <DependentUpon>IntegralGOData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Backstage_RotationChart.cs">
+      <DependentUpon>IntegralGOData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Backstage_User.cs">
+      <DependentUpon>IntegralGOData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="IntegralGOData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntegralGOData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IntegralGOData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntegralGOData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IntegralGOData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntegralGOData.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -157,15 +192,37 @@
     <Content Include="Content\Site.css" />
     <Content Include="Img\387266.jpg" />
     <Content Include="Img\jifen.png" />
+    <Content Include="Img\QB.png" />
     <Content Include="Img\QQ图片20181204160702.jpg" />
     <Content Include="Img\QQ图片20181204160710.jpg" />
     <Content Include="Img\QQ图片20181204172148.jpg" />
     <Content Include="Img\QQ图片20181205112917.jpg" />
+    <Content Include="Img\soutu123.cn_3715405_圣诞节红色礼物铃铛氛围元素_搜图中国祝您工作顺利.png" />
+    <Content Include="Img\微信图片_20181206162438.png" />
+    <Content Include="Img\爱奇艺.png" />
     <Content Include="Img\积分商城.png" />
+    <Content Include="Img\红包.png" />
+    <Content Include="IntegralGOData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IntegralGOData.Context.cs</LastGenOutput>
+      <DependentUpon>IntegralGOData.edmx</DependentUpon>
+    </Content>
+    <Content Include="IntegralGOData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IntegralGOData.edmx</DependentUpon>
+      <LastGenOutput>IntegralGOData.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="IntegralGOData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IntegralGOData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="IntegralGOData.edmx.diagram">
+      <DependentUpon>IntegralGOData.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -198,6 +255,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Myself.cshtml" />
     <Content Include="Views\Home\Myself_Class.cshtml" />
+    <Content Include="Views\Home\CommoditiePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -215,6 +273,15 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{f6db38dd-bde7-4414-9ea6-81e8b0ab0774}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

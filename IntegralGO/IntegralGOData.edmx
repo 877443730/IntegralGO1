@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IntegralDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Backstage_Commoditie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="commoditieName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="commoditiePath" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="useIntegral" Type="int" Nullable="false" />
+          <Property Name="uploaddate" Type="date" Nullable="false" />
+          <Property Name="state" Type="int" Nullable="false" />
+          <Property Name="number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Backstage_CommoditiesInformation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cid" Type="int" Nullable="false" />
+          <Property Name="stock" Type="int" Nullable="false" />
+          <Property Name="price" Type="int" />
+          <Property Name="Postage" Type="int" />
+          <Property Name="Ctitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="explain" Type="nvarchar" MaxLength="200" />
+          <Property Name="exchangeInstructions" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Backstage_RotationChart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="path" Type="nvarchar" MaxLength="200" />
+          <Property Name="upload" Type="date" Nullable="false" />
+          <Property Name="state" Type="int" Nullable="false" />
+          <Property Name="jumpAdress" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Backstage_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="pwd" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IntegralDataModelStoreContainer">
+          <EntitySet Name="Backstage_Commoditie" EntityType="Self.Backstage_Commoditie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Backstage_CommoditiesInformation" EntityType="Self.Backstage_CommoditiesInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Backstage_RotationChart" EntityType="Self.Backstage_RotationChart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Backstage_User" EntityType="Self.Backstage_User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IntegralDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Backstage_RotationChart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="path" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="upload" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="state" Type="Int32" Nullable="false" />
+          <Property Name="jumpAdress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Backstage_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pwd" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IntegralDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Backstage_RotationChart" EntityType="Self.Backstage_RotationChart" />
+          <EntitySet Name="Backstage_User" EntityType="Self.Backstage_User" />
+          <EntitySet Name="Backstage_Commoditie" EntityType="IntegralDataModel.Backstage_Commoditie" />
+          <EntitySet Name="Backstage_CommoditiesInformation" EntityType="IntegralDataModel.Backstage_CommoditiesInformation" />
+        </EntityContainer>
+        <EntityType Name="Backstage_Commoditie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="commoditieName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="commoditiePath" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="useIntegral" Type="Int32" Nullable="false" />
+          <Property Name="uploaddate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="state" Type="Int32" Nullable="false" />
+          <Property Name="number" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Backstage_CommoditiesInformation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cid" Type="Int32" Nullable="false" />
+          <Property Name="stock" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="Postage" Type="Int32" />
+          <Property Name="Ctitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="explain" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="exchangeInstructions" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IntegralDataModelStoreContainer" CdmEntityContainer="IntegralDataEntities">
+          <EntitySetMapping Name="Backstage_RotationChart">
+            <EntityTypeMapping TypeName="IntegralDataModel.Backstage_RotationChart">
+              <MappingFragment StoreEntitySet="Backstage_RotationChart">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="upload" ColumnName="upload" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="jumpAdress" ColumnName="jumpAdress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Backstage_User">
+            <EntityTypeMapping TypeName="IntegralDataModel.Backstage_User">
+              <MappingFragment StoreEntitySet="Backstage_User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Backstage_Commoditie">
+            <EntityTypeMapping TypeName="IntegralDataModel.Backstage_Commoditie">
+              <MappingFragment StoreEntitySet="Backstage_Commoditie">
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="uploaddate" ColumnName="uploaddate" />
+                <ScalarProperty Name="useIntegral" ColumnName="useIntegral" />
+                <ScalarProperty Name="commoditiePath" ColumnName="commoditiePath" />
+                <ScalarProperty Name="commoditieName" ColumnName="commoditieName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Backstage_CommoditiesInformation">
+            <EntityTypeMapping TypeName="IntegralDataModel.Backstage_CommoditiesInformation">
+              <MappingFragment StoreEntitySet="Backstage_CommoditiesInformation">
+                <ScalarProperty Name="exchangeInstructions" ColumnName="exchangeInstructions" />
+                <ScalarProperty Name="explain" ColumnName="explain" />
+                <ScalarProperty Name="Ctitle" ColumnName="Ctitle" />
+                <ScalarProperty Name="Postage" ColumnName="Postage" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="Cid" ColumnName="Cid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -19,7 +19,7 @@
         position:center;
     }
     .buttons-row .button:first-child {
-        border-radius: .9rem 0 0 .9rem;
+        border-radius: 1rem 0 0 1rem;
         margin-left: 10%;
         border-left-width: 1px;
         border-left-style:solid;
@@ -27,7 +27,7 @@
         width: 40%;
     }
     .buttons-row .button:last-child {
-        border-radius: 0 .9rem .9rem 0;
+        border-radius: 0 1rem 1rem 0;
         width: 40%;
     }
     .item-title {
@@ -408,6 +408,7 @@
     var imgsrc = "";
     var myself_massage = "";
     function myself_class() {
+        chooseItem();
         //此处需做判定是否有记录，无记录则默认执行下方swtch。
         switch ("@ViewBag.Itemclass") {
             case "我的福利":
@@ -445,6 +446,6 @@
         $("#iClassPicture").attr("src", imgsrc);
         $("#iClassMassage").text(myself_massage);
     }
-    window.onload = myself_class();
+    window.onload = myself_class;
 </script>
 
